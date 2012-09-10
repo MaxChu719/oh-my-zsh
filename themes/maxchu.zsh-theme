@@ -28,7 +28,7 @@ function put_spacing() {
 
    local spacing=""
    for i in {1..$termwidth}; do
-       spacing="${spacing} "
+       spacing="${spacing}="
    done
    echo $spacing
 }
@@ -38,7 +38,7 @@ function virtualenv_info {
 }
 
 function precmd() {
-print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)$(put_spacing)%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}'
+print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)%{$fg[green]%}$(put_spacing)%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}'
 }
 
 PROMPT='%{$fg[green]%}╚ %{$reset_color%}$(virtualenv_info) %{$fg_bold[blue]%}%n%{$fg[yellow]%} ⇒ %{$reset_color%}'
