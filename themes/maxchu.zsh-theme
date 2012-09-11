@@ -31,7 +31,7 @@
 
 function git_prompt_info() {
    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-   echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+   echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX$(git_prompt_status)"
 }
 
 function get_pwd() {
@@ -40,7 +40,7 @@ function get_pwd() {
 
 function get_env() {
    if [ ${#VIRTUAL_ENV} != 0 ]; then
-       echo ${#VIRTUAL_ENV} + 31
+       echo ${#VIRTUAL_ENV} + 30
    else
        echo ${#VIRTUAL_ENV}
    fi
@@ -49,7 +49,7 @@ function get_env() {
 function put_spacing() {
    local git=$(git_prompt_info)
    if [ ${#git} != 0 ]; then
-       ((git=${#git} - 12))
+       ((git=${#git} - 25))
    else
        git=0
    fi
@@ -69,7 +69,7 @@ function virtualenv_info {
 }
 
 function precmd() {
-print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)%{$fg[green]%}$(put_spacing)%{$fg_bold[green]%}$(git_prompt_info)$(git_prompt_status)'
+print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)%{$fg[green]%}$(put_spacing)%{$fg_bold[green]%}$(git_prompt_info)'
 }
 
 PROMPT='%{$fg[green]%}╚ %{$reset_color%}$(virtualenv_info) %{$fg_bold[blue]%}%n%{$fg[yellow]%} ⇒ %{$reset_color%}'
