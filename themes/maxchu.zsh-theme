@@ -29,7 +29,7 @@ function get_pwd() {
 
 function get_env() {
    if [ ${#VIRTUAL_ENV} != 0 ]; then
-       echo ${#VIRTUAL_ENV} + 30
+       echo ${#VIRTUAL_ENV} + 25
    else
        echo ${#VIRTUAL_ENV}
    fi
@@ -38,7 +38,7 @@ function get_env() {
 function put_spacing() {
    local git=$(git_prompt_info)
    if [ ${#git} != 0 ]; then
-       ((git=${#git} - 25))
+       ((git=${#git} - 20))
    else
        git=0
    fi
