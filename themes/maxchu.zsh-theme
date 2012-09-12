@@ -69,7 +69,7 @@ function virtualenv_info {
 }
 
 function precmd() {
-print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)%{$fg[green]%}$(put_spacing)%{$fg[green]%}$(git_prompt_info)'
+print -rP '%{$fg[green]%}╔ %{$fg[cyan]%}%m: %{$fg[green]%}$(get_pwd)%{$fg[yellow]%}$(put_spacing)$(git_prompt_info)'
 }
 
 PROMPT='%{$fg[green]%}╚ %{$reset_color%}$(virtualenv_info) %{$fg_bold[blue]%}%n%{$fg[yellow]%} ⇒ %{$reset_color%}'
