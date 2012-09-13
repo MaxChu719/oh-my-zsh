@@ -31,10 +31,10 @@ function virtualenv_info {
 }
 
 function precmd() {
-print -rP '%F{green}╔ %F{cyan}%m%{$reset_color%} : %F{yellow}$(get_pwd)%F{green}$(put_spacing)'
+print -rP '%F{green}╔ %F{cyan}%m%F{white} : %F{yellow}$(get_pwd)%F{green}$(put_spacing)'
 }
 
-PROMPT='%F{green}╚ %{$reset_color%}$(virtualenv_info)%F{blue}%n%F{yellow} ⌘: %{$reset_color%}'
+PROMPT='%F{green}╚ %F{white}$(virtualenv_info)%F{blue}%n%F{yellow} ⌘  %{$reset_color%}'
 RPROMPT='$(git_prompt_info)%{$reset_color%}'
 
 VIRTUAL_ENV_DISABLE_PROMPT=True
