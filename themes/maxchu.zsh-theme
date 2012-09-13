@@ -38,13 +38,13 @@ function get_env() {
 function put_spacing() {
    local git=$(git_prompt_info)
    if [ ${#git} != 0 ]; then
-       ((git=${#git} - 20))
+       ((git=${#git} - 16))
    else
        git=0
    fi
 
    local termwidth
-   ((termwidth = ${COLUMNS} - 5 - ${#HOST} - ${#$(get_pwd)} - ${git}))
+   ((termwidth = ${COLUMNS} - 0 - ${#HOST} - ${#$(get_pwd)} - ${git}))
 
    local spacing=""
    for i in {1..$termwidth}; do
